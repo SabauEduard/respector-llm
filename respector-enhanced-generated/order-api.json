@@ -1,0 +1,353 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "info": {
+    "title": "REST API",
+    "version": "",
+    "description": "REST API\n\nEnhanced with Respector-LLM Enhancer."
+  },
+  "paths": {
+    "/clients": {
+      "get": {
+        "description": "Fetches a list of all clients. No parameters or request body are required, and no specific input constraints are identified.",
+        "operationId": "em8",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "default": {
+            "description": "others"
+          }
+        },
+        "summary": "Retrieve all clients",
+        "x-enhanced-by": "Respector-LLM"
+      },
+      "post": {
+        "description": "Creates a new client record with details including city, email, home number, name, phone number, state, street name, and zip code. No specific input constraints identified.",
+        "operationId": "em10",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "CREATED"
+          },
+          "default": {
+            "description": "others"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "homeNumber": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "phoneNumber": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "streetName": {
+                    "type": "string"
+                  },
+                  "zipCode": {
+                    "type": "string"
+                  }
+                },
+                "maxProperties": 8
+              }
+            }
+          }
+        },
+        "summary": "Create a new client record",
+        "x-enhanced-by": "Respector-LLM"
+      }
+    },
+    "/clients/{id}": {
+      "delete": {
+        "description": "Deletes a client record identified by its ID. The ID must be a valid integer.",
+        "operationId": "em11",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "NO_CONTENT"
+          },
+          "default": {
+            "description": "others"
+          }
+        },
+        "summary": "Delete client by ID",
+        "x-enhanced-by": "Respector-LLM"
+      },
+      "get": {
+        "description": "Fetches client details using the provided ID. The ID must be an integer.",
+        "operationId": "em9",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "default": {
+            "description": "others"
+          }
+        },
+        "summary": "Retrieve client by ID",
+        "x-enhanced-by": "Respector-LLM"
+      }
+    },
+    "/orders": {
+      "get": {
+        "description": "Fetches a list of all orders. No parameters or input constraints are required for this endpoint.",
+        "operationId": "em4",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "default": {
+            "description": "others"
+          }
+        },
+        "summary": "Retrieve all orders",
+        "x-enhanced-by": "Respector-LLM"
+      },
+      "post": {
+        "description": "Creates a new order with client, id, items, moment, and status. No specific input constraints are identified.",
+        "operationId": "em6",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "CREATED"
+          },
+          "default": {
+            "description": "others"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "client": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "items": {
+                    "type": "string"
+                  },
+                  "moment": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "maxProperties": 5
+              }
+            }
+          }
+        },
+        "summary": "Create a new order",
+        "x-enhanced-by": "Respector-LLM"
+      }
+    },
+    "/orders/{id}": {
+      "delete": {
+        "description": "Deletes an order specified by its unique ID. The ID must be a valid integer provided in the URL path.",
+        "operationId": "em7",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "NO_CONTENT"
+          },
+          "default": {
+            "description": "others"
+          }
+        },
+        "summary": "Delete an order by ID",
+        "x-enhanced-by": "Respector-LLM"
+      },
+      "get": {
+        "description": "Fetches details of an order using its unique ID. The ID must be a valid integer.",
+        "operationId": "em5",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "default": {
+            "description": "others"
+          }
+        },
+        "summary": "Retrieve Order by ID",
+        "x-enhanced-by": "Respector-LLM"
+      }
+    },
+    "/products": {
+      "get": {
+        "description": "Fetches a list of all available products. No parameters or input constraints are required for this endpoint.",
+        "operationId": "em0",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "default": {
+            "description": "others"
+          }
+        },
+        "summary": "Retrieve product list",
+        "x-enhanced-by": "Respector-LLM"
+      },
+      "post": {
+        "description": "Adds a new product with specified id, name, and price. No constraints on input values are identified.",
+        "operationId": "em3",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "CREATED"
+          },
+          "default": {
+            "description": "others"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  }
+                },
+                "maxProperties": 3
+              }
+            }
+          }
+        },
+        "summary": "Create a new product",
+        "x-enhanced-by": "Respector-LLM"
+      }
+    },
+    "/products/{id}": {
+      "delete": {
+        "description": "Deletes a product identified by its unique ID. The ID must be a valid integer.",
+        "operationId": "em2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "NO_CONTENT"
+          },
+          "default": {
+            "description": "others"
+          }
+        },
+        "summary": "Delete product by ID",
+        "x-enhanced-by": "Respector-LLM"
+      },
+      "get": {
+        "description": "Retrieves product details by its unique ID. The ID must be a valid integer.",
+        "operationId": "em1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "default": {
+            "description": "others"
+          }
+        },
+        "summary": "Get Product by ID",
+        "x-enhanced-by": "Respector-LLM"
+      }
+    }
+  },
+  "components": {
+    "x-endpoint-constraints": {},
+    "x-endpoint-interdependence": {},
+    "x-global-variables-info": {}
+  }
+}
