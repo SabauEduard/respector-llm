@@ -13,7 +13,7 @@
   "paths": {
     "/clients": {
       "get": {
-        "description": "Fetches a list of all clients. No parameters or request body are required, and no specific input constraints are identified.",
+        "description": "Fetches a list of all clients. No parameters or input constraints are required for this endpoint.",
         "operationId": "em8",
         "parameters": [],
         "responses": {
@@ -28,7 +28,7 @@
         "x-enhanced-by": "Respector-LLM"
       },
       "post": {
-        "description": "Creates a new client record with details including city, email, home number, name, phone number, state, street name, and zip code. No specific input constraints identified.",
+        "description": "Creates a new client record with details such as name, email, address, and contact information. All fields must be provided in the request body as no constraints are identified.",
         "operationId": "em10",
         "parameters": [],
         "responses": {
@@ -80,7 +80,7 @@
     },
     "/clients/{id}": {
       "delete": {
-        "description": "Deletes a client record identified by its ID. The ID must be a valid integer.",
+        "description": "Deletes a client record identified by its unique ID. The ID must be a valid integer.",
         "operationId": "em11",
         "parameters": [
           {
@@ -105,7 +105,7 @@
         "x-enhanced-by": "Respector-LLM"
       },
       "get": {
-        "description": "Fetches client details using the provided ID. The ID must be an integer.",
+        "description": "Fetches client information using a unique client ID provided in the path parameter. The ID must be an integer.",
         "operationId": "em9",
         "parameters": [
           {
@@ -126,7 +126,7 @@
             "description": "others"
           }
         },
-        "summary": "Retrieve client by ID",
+        "summary": "Retrieve client details by ID",
         "x-enhanced-by": "Respector-LLM"
       }
     },
@@ -147,7 +147,7 @@
         "x-enhanced-by": "Respector-LLM"
       },
       "post": {
-        "description": "Creates a new order with client, id, items, moment, and status. No specific input constraints are identified.",
+        "description": "Creates a new order with client details, order ID, items, timestamp, and status. All input values must adhere to their respective types: client as string, id as integer, items as string, moment as string, and status as string.",
         "operationId": "em6",
         "parameters": [],
         "responses": {
@@ -190,7 +190,7 @@
     },
     "/orders/{id}": {
       "delete": {
-        "description": "Deletes an order specified by its unique ID. The ID must be a valid integer provided in the URL path.",
+        "description": "Deletes an order specified by its unique ID. The ID must be a valid integer provided in the path parameter.",
         "operationId": "em7",
         "parameters": [
           {
@@ -211,11 +211,11 @@
             "description": "others"
           }
         },
-        "summary": "Delete an order by ID",
+        "summary": "Delete Order by ID",
         "x-enhanced-by": "Respector-LLM"
       },
       "get": {
-        "description": "Fetches details of an order using its unique ID. The ID must be a valid integer.",
+        "description": "Fetches details of a specific order using its ID. The ID must be an integer.",
         "operationId": "em5",
         "parameters": [
           {
@@ -236,13 +236,13 @@
             "description": "others"
           }
         },
-        "summary": "Retrieve Order by ID",
+        "summary": "Retrieve order by ID",
         "x-enhanced-by": "Respector-LLM"
       }
     },
     "/products": {
       "get": {
-        "description": "Fetches a list of all available products. No parameters or input constraints are required for this endpoint.",
+        "description": "Fetches a list of all available products. No input parameters or constraints are required for this request.",
         "operationId": "em0",
         "parameters": [],
         "responses": {
@@ -253,11 +253,11 @@
             "description": "others"
           }
         },
-        "summary": "Retrieve product list",
+        "summary": "Retrieve all products",
         "x-enhanced-by": "Respector-LLM"
       },
       "post": {
-        "description": "Adds a new product with specified id, name, and price. No constraints on input values are identified.",
+        "description": "Creates a new product with the specified id (integer), name (string), and price (number). No specific input constraints are identified.",
         "operationId": "em3",
         "parameters": [],
         "responses": {
@@ -294,7 +294,7 @@
     },
     "/products/{id}": {
       "delete": {
-        "description": "Deletes a product identified by its unique ID. The ID must be a valid integer.",
+        "description": "Deletes a product identified by its unique ID. The ID must be an integer. No additional constraints are identified.",
         "operationId": "em2",
         "parameters": [
           {
@@ -319,7 +319,7 @@
         "x-enhanced-by": "Respector-LLM"
       },
       "get": {
-        "description": "Retrieves product details by its unique ID. The ID must be a valid integer.",
+        "description": "Retrieves product details by its unique ID. The ID must be an integer.",
         "operationId": "em1",
         "parameters": [
           {

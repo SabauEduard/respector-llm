@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # Swagger UI pentru BEFORE (Respector raw output)
+  swagger-before:
+    image: swaggerapi/swagger-ui
+    container_name: swagger-before
+    ports:
+      - "9081:8080"
+    environment:
+      - SWAGGER_JSON=/specs/order-api.json
+    volumes:
+      - ./respector-generated:/specs
+    
+  # Swagger UI pentru AFTER (Enhanced output)
+  swagger-after:
+    image: swaggerapi/swagger-ui
+    container_name: swagger-after
+    ports:
+      - "9082:8080"
+    environment:
+      - SWAGGER_JSON=/specs/order-api.json
+    volumes:
+      - ./respector-enhanced-generated:/specs
+

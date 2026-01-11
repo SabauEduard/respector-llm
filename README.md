@@ -35,6 +35,8 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+**Quick Start:** See [QUICK-START.md](QUICK-START.md) for a step-by-step guide.
+
 ## Configuration
 
 1. Copy the configuration template:
@@ -78,6 +80,62 @@ Shows progress for each endpoint being processed.
 
 ```bash
 python respector_llm_enhancer.py --help
+```
+
+## Viewing the Results in Swagger UI
+
+### Start the Documentation Viewers
+
+Use Docker Compose to run two side-by-side Swagger UI instances:
+
+```bash
+# Start both viewers
+./view-docs.sh
+
+# Or manually:
+docker-compose up -d
+```
+
+This will start:
+- **BEFORE viewer** (Raw Respector output): http://localhost:9081
+- **AFTER viewer** (Enhanced documentation): http://localhost:9082
+
+### Navigate the Documentation
+
+1. Open both URLs in your browser (they should open automatically)
+2. Arrange windows side-by-side for easy comparison
+3. Navigate to the same endpoint in both viewers
+4. Compare the differences:
+   - **Left (BEFORE)**: Technical structure only, empty descriptions
+   - **Right (AFTER)**: Full documentation with summaries and descriptions
+
+### Stop the Viewers
+
+When you're done viewing:
+
+```bash
+# Stop and remove containers
+docker-compose down
+
+# Or if you used ./view-docs.sh with Ctrl+C, clean up with:
+docker-compose down
+```
+
+### Alternative Viewing Methods
+
+**Option 1: Online Swagger Editor** (no installation needed)
+1. Go to [editor.swagger.io](https://editor.swagger.io)
+2. File → Import file → Select your JSON spec
+3. View documentation in the right panel
+
+**Option 2: VS Code Extension**
+1. Install "Swagger Viewer" extension
+2. Open any `.json` spec file
+3. Press `Shift+Alt+P` → "Preview Swagger"
+
+**Option 3: NPX** (one-time, no installation)
+```bash
+npx --yes swagger-ui-watcher respector-generated/order-api.json
 ```
 
 ## Example
