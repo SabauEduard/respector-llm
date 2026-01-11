@@ -23,7 +23,8 @@ from tqdm import tqdm  # type: ignore
 load_dotenv()
 
 # System prompt for the LLM
-SYSTEM_PROMPT = """You are an expert Technical Writer for REST APIs. Your goal is to generate professional, concise documentation based on technical constraints extracted from static code analysis.
+SYSTEM_PROMPT = """You are an expert Technical Writer for REST APIs. 
+Your goal is to generate professional, concise documentation based on technical constraints extracted from static code analysis.
 
 You must respond ONLY with valid JSON. No markdown, no explanation, just the JSON object."""
 
